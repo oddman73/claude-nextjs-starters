@@ -12,22 +12,28 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("system")
-
-  useEffect(() => {
-    const saved = localStorage.getItem("theme") as Theme | null
-    if (saved) setThemeState(saved)
-  }, [])
+  const [theme, setThemeState] = useState<Theme>(() => {
+    if (typeof window === "undefined") return "system"
+    return (localStorage.getItem("theme") as Theme | null) ?? "system"
+  })
 
   useEffect(() => {
     const root = document.documentElement
-    const isDark =
-      theme === "dark" ||
-      (theme === "system" &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-
-    root.classList.toggle("dark", isDark)
     localStorage.setItem("theme", theme)
+
+    if (theme !== "system") {
+      root.classList.toggle("dark", theme === "dark")
+      return
+    }
+
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)")
+    const applySystemTheme = (e: MediaQueryList | MediaQueryListEvent) => {
+      root.classList.toggle("dark", e.matches)
+    }
+
+    applySystemTheme(mediaQuery)
+    mediaQuery.addEventListener("change", applySystemTheme)
+    return () => mediaQuery.removeEventListener("change", applySystemTheme)
   }, [theme])
 
   return (

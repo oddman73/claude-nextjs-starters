@@ -73,12 +73,12 @@ export default function Home() {
         <div className="flex flex-col sm:flex-row gap-4">
           <Button size="lg" className="gap-2" asChild>
             <Link href="#features">
-              기능 살펴보기 <ArrowRight className="size-4" />
+              기능 살펴보기 <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
           </Button>
           <Button size="lg" variant="outline" className="gap-2" asChild>
             <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
-              <ExternalLink className="size-4" />
+              <ExternalLink className="size-4" aria-hidden="true" />
               GitHub
             </Link>
           </Button>
@@ -105,7 +105,7 @@ export default function Home() {
                 className="hover:shadow-md transition-shadow"
               >
                 <CardHeader>
-                  <feature.icon className="size-8 mb-2" />
+                  <feature.icon className="size-8 mb-2" aria-hidden="true" />
                   <CardTitle>{feature.title}</CardTitle>
                   <CardDescription>{feature.description}</CardDescription>
                 </CardHeader>
@@ -146,7 +146,7 @@ export default function Home() {
         <div className="container mx-auto max-w-3xl">
           <Card className="text-center overflow-hidden">
             <CardContent className="p-10 md:p-16 bg-gradient-to-br from-muted/50 to-background">
-              <Rocket className="size-12 mx-auto mb-6" />
+              <Rocket className="size-12 mx-auto mb-6" aria-hidden="true" />
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 지금 바로 시작하세요
               </h2>
@@ -160,12 +160,12 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Button size="lg" className="gap-2" asChild>
                   <Link href="https://nextjs.org/docs" target="_blank" rel="noopener noreferrer">
-                    문서 보기 <ArrowRight className="size-4" />
+                    문서 보기 <ArrowRight className="size-4" aria-hidden="true" />
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" className="gap-2" asChild>
                   <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="size-4" />
+                    <ExternalLink className="size-4" aria-hidden="true" />
                     소스 보기
                   </Link>
                 </Button>

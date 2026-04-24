@@ -7,7 +7,7 @@ export function Footer() {
       <div className="container mx-auto max-w-6xl px-4">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2">
-            <Code2 className="size-4" />
+            <Code2 className="size-4" aria-hidden="true" />
             <span className="font-semibold">StarterKit</span>
           </div>
           <p className="text-sm text-muted-foreground text-center">
@@ -17,9 +17,10 @@ export function Footer() {
             <Link
               href="https://github.com"
               target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-foreground transition-colors flex items-center gap-1"
             >
-              <ExternalLink className="size-4" />
+              <ExternalLink className="size-4" aria-hidden="true" />
               GitHub
             </Link>
             <span>© 2025 StarterKit</span>

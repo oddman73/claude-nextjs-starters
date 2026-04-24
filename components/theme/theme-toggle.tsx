@@ -5,10 +5,11 @@ import { Button } from "@/components/ui/button"
 import { useTheme } from "./theme-provider"
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
+  const { setTheme } = useTheme()
 
   const toggle = () => {
-    setTheme(theme === "dark" ? "light" : "dark")
+    const isDark = document.documentElement.classList.contains("dark")
+    setTheme(isDark ? "light" : "dark")
   }
 
   return (

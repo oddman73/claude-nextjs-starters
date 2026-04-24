@@ -8,7 +8,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-14 max-w-6xl items-center px-4">
         <div className="flex items-center gap-2 mr-6">
-          <Code2 className="size-5" />
+          <Code2 className="size-5" aria-hidden="true" />
           <Link href="/" className="font-bold text-lg">
             StarterKit
           </Link>
