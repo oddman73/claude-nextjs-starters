@@ -1,3 +1,10 @@
 {
-    "css.lint.unknownAtRules": "ignore"
+    "permissions": {
+      "allow": [
+        "Bash(npm run *)",
+        "Bash(node *)"
+      ]
+    },
+    "enabledMcpServers": ["playwright"],
+    "enableAllProjectMcpServers": true
 }

@@ -1,8 +1,19 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash(npm run *)",
-      "Bash(node *)"
+  "enabledMcpjsonServers": [
+    "playwright"
+  ],
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '테스트 훅 !' >> ./hook-test.txt"
+          }
+        ]
+      }
     ]
-  }
+  },
+  "enableAllProjectMcpServers": true
 }
